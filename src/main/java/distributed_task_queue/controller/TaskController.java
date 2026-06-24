@@ -1,7 +1,10 @@
 package distributed_task_queue.controller;
 
+import distributed_task_queue.dto.CreateTaskRequest;
 import distributed_task_queue.model.Task;
 import distributed_task_queue.service.TaskService;
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +18,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task) {
-        return taskService.createTask(task);
+    public Task createTask( @Valid @RequestBody CreateTaskRequest request) {
+        return taskService.createTask(request);
     }
 }
