@@ -1,6 +1,7 @@
 package distributed_task_queue.controller;
 
 import distributed_task_queue.dto.CreateTaskRequest;
+import distributed_task_queue.dto.TaskResponse;
 import distributed_task_queue.model.Task;
 import distributed_task_queue.service.TaskService;
 import jakarta.validation.Valid;
@@ -18,7 +19,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task createTask( @Valid @RequestBody CreateTaskRequest request) {
+    public TaskResponse createTask( @Valid @RequestBody CreateTaskRequest request) {
         return taskService.createTask(request);
     }
 }
